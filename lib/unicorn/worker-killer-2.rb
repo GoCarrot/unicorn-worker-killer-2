@@ -13,7 +13,7 @@ module Unicorn
     #
     # @see http://unicorn.bogomips.org/SIGNALS.html
     def self.kill_self(logger, start_time)
-      alive_sec = (Time.now - start_time).round
+      alive_sec = (now - start_time).round
       worker_pid = Process.pid
 
       @kill_attempts ||= 0
@@ -29,6 +29,10 @@ module Unicorn
 
     def self.randomize(integer)
       Random.rand(integer.abs)
+    end
+
+    def self.now
+      Process.clock_gettime(Process::CLOCK_MONOTONIC)
     end
   end
 end

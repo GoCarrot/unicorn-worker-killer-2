@@ -35,7 +35,7 @@ module Unicorn
         ObjectSpace.each_object(HttpServer) do |s|
           s.extend(MonkeyPatch)
 
-          s.instance_variable_set(:@_worker_process_start, Time.now)
+          s.instance_variable_set(:@_worker_process_start, WorkerKiller.now)
 
           s.instance_variable_set(:@_worker_memory_limit_min, min)
           s.instance_variable_set(:@_worker_memory_limit_max, max)
