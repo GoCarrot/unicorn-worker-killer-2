@@ -1,0 +1,21 @@
+stages:
+  - package
+  - publish
+
+package:
+  stage: package
+  image: $CI_REGISTRY/docker-images/layers:stretch-ruby
+  variables:
+    GEMFILE: unicorn-worker-killer-2.gemspec
+  artifacts:
+    paths:
+      - pkg
+  script:
+    - package
+
+publish:
+  stage: publish
+  tags:
+    - shell
+  script:
+    - publish
