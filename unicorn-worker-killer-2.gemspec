@@ -3,10 +3,10 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 
 Gem::Specification.new do |s|
   s.name        = 'unicorn-worker-killer-2'
-  s.version     = '1.0.0'
+  s.version     = '1.0.1'
   s.authors     = ['Chris Elsworth']
-  s.email       = ['chris.elsworth@bytemark.co.uk']
-  s.homepage    = 'https://gitlab.bytemark.co.uk/bytemark/unicorn-worker-killer-2'
+  s.email       = ['chris@cae.me.uk']
+  s.homepage    = 'https://github.com/celsworth/unicorn-worker-killer-2'
   s.summary     = 'Rewrite of unicorn-worker-kill'
   s.description = 'Kill Unicorn child processes when they exceed memory/request limits'
 
