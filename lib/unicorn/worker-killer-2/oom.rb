@@ -32,7 +32,7 @@ module Unicorn
         check_cycle = opts[:check_cycle] || 16
         verbose = opts[:verbose] || false
 
-        ObjectSpace.each_object(HttpServer) do |s|
+        ObjectSpace.each_object(Unicorn::HttpServer) do |s|
           s.extend(MonkeyPatch)
 
           s.instance_variable_set(:@_worker_process_start, WorkerKiller.now)
