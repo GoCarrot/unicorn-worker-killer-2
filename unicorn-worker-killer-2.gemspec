@@ -13,5 +13,5 @@ Gem::Specification.new do |s|
   s.files       = Dir.glob('lib/**/*')
 
   s.add_dependency 'get_process_mem', '~> 0'
-  s.add_dependency 'unicorn',         ['>= 4', '< 6']
+  s.add_dependency 'unicorn',         '>= 4'
 end
