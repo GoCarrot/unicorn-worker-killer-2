@@ -17,7 +17,13 @@ module Unicorn
 
           return unless (@_worker_check_count % @_worker_check_cycle).zero?
 
-          rss = GetProcessMem.new.bytes
+          mem = GetProcessMem.new
+          rss = if mem.respond_to?(:private_bytes)
+                  mem.private_bytes
+                else
+                  mem.bytes
+                end
+
           logger.info "#{self}: worker (pid: #{Process.pid}) using #{rss} bytes." if @_verbose
           return if rss < @_worker_memory_limit
 
